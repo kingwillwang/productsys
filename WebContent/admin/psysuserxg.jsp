@@ -16,10 +16,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
-<title>信息添加</title>
+<title>修改个人信息</title>
 <style type="text/css">
 a { 
-	text-decoration: none;
+	text-decoration: none 
 }
 body {
 	margin-left: 0px;
@@ -41,13 +41,16 @@ body {
 </style>
 </head>
 <%
+	new CommDAO().delete(request, "sysuser");
+	String id = userid;
+	String erjitype = request.getParameter("erjitype");
+	String myztree = request.getParameter("myztree");
 	HashMap ext = new HashMap();
-	String tglparentid = request.getParameter("tglparentid") == null ? "" : request.getParameter("tglparentid");
-	ext.put("tglparentid", tglparentid);
-	new CommDAO().insert(request, response, "sysuser", ext, true, false);
+	new CommDAO().update(request, response, "sysuser", ext, true, false);
+	HashMap mmm = new CommDAO().getmap(id, "sysuser");
 %>
 <body>
-<form  action="sysusertj.jsp?f=f&tglparentid=<%=tglparentid%>"  name="f1" method="post"  onsubmit="return checkform()" >
+<form  action="psysuserxg.jsp?f=f&id=<%=mmm.get("id")%>"  name="f1" method="post"  onsubmit="return checkform()" >
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td height="2"></td>
@@ -71,7 +74,7 @@ body {
                 									</div>
                 								</td>
                 								<td width="95%" class="STYLE1">
-                									<span class="STYLE3">你当前的位置</span>：信息添加
+                									<span class="STYLE3">你当前的位置</span>：修改个人信息
                 								</td>
               								</tr>
             							</table>
@@ -105,50 +108,25 @@ body {
             							</div>
             						</td>
             					</tr>
-         		 				<tr>
+          						<tr>
             						<td width="17%" height="30" bgcolor="#FFFFFF">
             							<div align="center">
             								<span class="STYLE1">用户名</span>
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-										<input type='text'  onblur='checkform()' class='' id='uname' name='uname' size='30' />
-										<label id='clabeluname' />
-									</td>
-          						</tr>
-								<tr>
-            						<td width="17%" height="30" bgcolor="#FFFFFF">
-            							<div align="center">
-            								<span class="STYLE1">密码</span>
-            							</div>
-            						</td>
-            						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text'  onblur='checkform()' class='' id='upass' name='upass' size='30'/>
-            							<label id='clabelupass' />
+            							<%=mmm.get("uname")%>
             						</td>
           						</tr>
 								<tr>
-            						<td width="17%" height="30" bgcolor="#FFFFFF">
-            							<div align="center">
-            								<span class="STYLE1">用户类别</span>
-            							</div>
-            						</td>
+           	 						<td width="17%" height="30" bgcolor="#FFFFFF">
+           	 							<div align="center">
+           	 								<span class="STYLE1">用户类别</span>
+           	 							</div>
+           	 						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<span id="utypedanx">
-            								<label>
-            									<input type='radio' checked='checked' name='utype' id='utype' value='库存管理员' />
-            									库存管理员 
-            								</label>
-											<label>
-												<input type='radio'  name='utype' id='utype' value='业务管理员' />
-												业务管理员 
-											</label>
-											<label>
-												<input type='radio'  name='utype' id='utype' value='系统管理员' />
-												系统管理员 
-											</label>
-										</span>
-									</td>
+            							<%=mmm.get("utype")%>
+            						</td>
           						</tr>
 								<tr>
             						<td width="17%" height="30" bgcolor="#FFFFFF">
@@ -157,7 +135,7 @@ body {
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text'  onblur='checkform()' class='' id='tname' name='tname' size='30' />
+            							<input type='text' onblur='checkform()' class='' id='tname' name='tname' size='30' />
             							<label id='clabeltname' />
             						</td>
           						</tr>
@@ -170,12 +148,10 @@ body {
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
             							<span id="sexdanx">
             								<label>
-            									<input type='radio' checked='checked' name='sex' id='sex' value='男' />
-            									男 
+            									<input type='radio' name='sex' value='男' />男 
             								</label>
 											<label>
-												<input type='radio'  name='sex' id='sex' value='女' />
-												女
+												<input type='radio' name='sex' value='女' />女 
 											</label>
 										</span>
 									</td>
@@ -187,7 +163,7 @@ body {
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text'  onblur='checkform()' class='' id='tel' name='tel' size='30' />
+            							<input type='text' onblur='checkform()' class='' id='tel' name='tel' size='30' />
             							<label id='clabeltel' />
             						</td>
           						</tr>
@@ -198,7 +174,7 @@ body {
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text'  onblur='checkform()' class='' id='email' name='email' size='30' />
+            							<input type='text' onblur='checkform()' class='' id='email' name='email' size='30' />
             							<label id='clabelemail' />
             						</td>
           						</tr>
@@ -209,13 +185,13 @@ body {
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<textarea  cols='35' rows='3'  style="margin-top: 1px;margin-bottom: 1px;"  class=''  name='addrs' ></textarea>
+            							<textarea  cols='35' rows='3'  onblur='checkform()' style="margin-top: 1px;margin-bottom: 1px"  class=''   name='addrs' ></textarea>
             						</td>
           						</tr>
             					<tr>
             						<td height="32" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF">
             							<input type="submit" name="Submit"  value="提交信息" />&nbsp;&nbsp;
-            							<input type='button' value='返回上页' onclick='window.location.replace("sysusercx.jsp")' />            
+            							<input type='button' value='重置信息' onclick='getPvalue()' />            
             						</td>
             					</tr>
         					</table>
@@ -228,7 +204,7 @@ body {
   		<tr>
     		<td height="35" background="/productsys/admin/tab/images/tab_19.gif">
     			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-      				<tr>
+     	 			<tr>
         				<td width="12" height="35">
         					<img src="/productsys/admin/tab/images/tab_18.gif" width="12" height="35" />
         				</td>
@@ -242,40 +218,12 @@ body {
   		</tr>
 	</table>
 </form>
-<script language='javascript' src='/productsys/js/My97DatePicker/WdatePicker.js'></script>
-<script language='javascript' src='/productsys/js/popup.js'></script>
-<script language='javascript' src='/productsys/js/ajax.js'></script>
-<script language='javascript' >  
-	function checkform(){  
-		var unameobj = document.getElementById("uname");  
-		if(unameobj.value==""){  
-			document.getElementById("clabeluname").innerHTML="&nbsp;&nbsp;<font color=red>请输入用户名</font>";  
-			return false;  
-		}else{
-			document.getElementById("clabeluname").innerHTML="  ";  
-		}  
-  
-		var unameobj = document.getElementById("uname");  
-		if(unameobj.value!=""){  
-			var ajax = new AJAX();
-			ajax.post("/productsys/factory/checkno.jsp?table=sysuser&col=uname&value="+unameobj.value+"&checktype=insert&ttime=<%=Info.getDateStr()%>")
-			var msg = ajax.getValue();
-			if (msg.indexOf('Y') > -1) {
-				document.getElementById("clabeluname").innerHTML = "&nbsp;&nbsp;<font color=red>用户名已存在</font>";
-				return false;
-			} else {
-				document.getElementById("clabeluname").innerHTML = "  ";
-			}
-		}
-		
-		var upassobj = document.getElementById("upass");
-		if (upassobj.value == "") {
-			document.getElementById("clabelupass").innerHTML = "&nbsp;&nbsp;<font color=red>请输入密码</font>";
-			return false;
-		} else {
-			document.getElementById("clabelupass").innerHTML = "  ";
-		}
-
+<script language='javascript' src='/productsys/js/My97DatePicker/WdatePicker.js'></script> 
+<script language='javascript' src='/productsys/js/ajax.js'></script> 
+<script language='javascript' src='/productsys/js/popup.js'></script> 
+ 
+<script language='javascript'>  
+	function checkform() {
 		var tnameobj = document.getElementById("tname");
 		if (tnameobj.value == "") {
 			document.getElementById("clabeltname").innerHTML = "&nbsp;&nbsp;<font color=red>请输入姓名</font>";
@@ -283,7 +231,7 @@ body {
 		} else {
 			document.getElementById("clabeltname").innerHTML = "  ";
 		}
-
+		
 		var telobj = document.getElementById("tel");
 		if (telobj.value == "") {
 			document.getElementById("clabeltel").innerHTML = "&nbsp;&nbsp;<font color=red>请输入联系电话</font>";
@@ -291,7 +239,6 @@ body {
 		} else {
 			document.getElementById("clabeltel").innerHTML = "  ";
 		}
-
 		var telobj = document.getElementById("tel");
 		if (telobj.value != "") {
 			if (telobj.value.length > 11 || telobj.value.length < 8 || isNaN(telobj.value)) {
@@ -315,6 +262,6 @@ body {
 		return true;
 	}
 </script>  
+<%=Info.tform(mmm)%> 
 </body>
 </html>
-

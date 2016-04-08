@@ -427,14 +427,14 @@ public class Info {
 
 
 	
-	/*public static String getImgUpInfo(int height)
+	public static String getImgUpInfo(int height)
 	{
 		String jscode = "";
 		jscode+="<img style=\"cursor: hand\" onclick=\"uploadimg()\" src=\"/productsys/js/nopic.jpg\" id=txt height=\""+height+"\"/>";
 		jscode+="<input type=hidden name=\"filename\" id=\"filename\" value=\"\" />";
 		jscode+="<script type=\"text/javascript\"  src=\"/productsys/js/popups.js\"></script>";
 		return jscode;
-	}*/
+	}
 	
 	
 	

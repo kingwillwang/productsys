@@ -82,9 +82,9 @@ String userid = user.get("id").toString();
           
           <%=Info.getCol("A","3","信息维护",null,null) %>
           <%=Info.getCol("C","3",null,null,"none") %>
+          <%=Info.getCol("B","3","修改登录密码","puppass.jsp",null) %>
           <%=Info.getCol("B","3","系统用户管理","sysusercx.jsp",null) %>
           <%=Info.getCol("B","3","修改个人信息","psysuserxg.jsp",null) %>
-          <%=Info.getCol("B","3","修改登录密码","puppass.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
           
           <%--  <%=Info.getCol("B","2","退货信息查看","thwpcrinfocx.jsp",null) %> 
