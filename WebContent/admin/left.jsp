@@ -99,11 +99,7 @@ String userid = user.get("id").toString();
            
           <%=Info.getCol("A","1","库存管理",null,null) %>
           <%=Info.getCol("C","1",null,null,"none") %>
-          <%=Info.getCol("B","1","仓库管理","basescx.jsp",null) %>
-          <%=Info.getCol("B","1","物品类别管理","wptypescx.jsp",null) %>
-          <%=Info.getCol("B","1","物品基本信息管理","wpjbxxcx.jsp",null) %>
           <%=Info.getCol("B","1","库存盘点","kcpd.jsp",null) %>
-          <%=Info.getCol("B","1","库存预警","kcyj.jsp",null) %>
           <%=Info.getCol("B","1","库存报损","bswpcrinfocx.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
           
