@@ -64,7 +64,7 @@ out.print(select);
  }
  
  
- if(ctype.equals("text")){
+ /* if(ctype.equals("text")){
 String select = ""; 
 	for(HashMap permap:new CommDAO().select(sql)){ 
 	String optionstr = "";
@@ -83,7 +83,7 @@ String select = "";
 	} 
  
 out.print(select.trim());
- }
+ } */
  
  if(ctype.equals("text2")){
 String select = ""; 

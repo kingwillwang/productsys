@@ -427,7 +427,7 @@ public class Info {
 
 
 	
-	public static String getImgUpInfo(int height)
+	/*public static String getImgUpInfo(int height)
 	{
 		String jscode = "";
 		jscode+="<img style=\"cursor: hand\" onclick=\"uploadimg()\" src=\"/productsys/js/nopic.jpg\" id=txt height=\""+height+"\"/>";
@@ -472,7 +472,7 @@ public class Info {
 		jscode+="<input type=hidden name=\"filename5\" id=\"filename5\" value=\"\" />";
 		jscode+="<script type=\"text/javascript\"  src=\"/productsys/js/popup.js\"></script>";
 		return jscode;
-	}
+	}*/
 	
 	public static String fck(int height,String content)
 	{

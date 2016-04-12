@@ -1,8 +1,3 @@
-// Decompiled by Jad v1.5.7g. Copyright 2000 Pavel Kouznetsov.
-// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
-// Decompiler options: packimports(3) fieldsfirst ansi 
-// Source File Name:   MD5.java
-
 package util;
 
 import java.text.ParseException;
@@ -110,8 +105,6 @@ public class StrUtil {
 	}
 	
 	public static int parseInt(String numberStr) {
-		//Pattern pattern=Pattern.compile("[0-9]*");
-		//Pattern pattern=Pattern.compile("^[\\-\\d][0-9]*[\\.]{0,1}[0-9]+$");
 		if(numberStr==null)
 			return 0;
 		Pattern pattern=Pattern.compile("^[\\-]{0,1}[0-9]+$");
