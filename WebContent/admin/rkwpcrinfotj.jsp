@@ -251,8 +251,8 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
 <script  src='/productsys/js/popup.js'></script>
 <script  src='/productsys/js/ajax.js'></script>
 
-<script type="text/javascript"> 
-	function spnamewpnochange(){ 
+<script type="text/javascript">
+	 function spnamewpnochange(){ 
 		document.getElementById("wpno").onchange=function(){spnamewpnochange();  
  	} 
 		var wpnovalue = document.getElementById("wpno").value; 
@@ -264,7 +264,7 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
 			spnameobj.value=msg.replace(" ",""); 
 	} 
  
-	spnamewpnochange();  
+	spnamewpnochange(); 
  
  	function checkform(){  
 		var opdateobj = document.getElementById("opdate");  
@@ -344,7 +344,7 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
 		}  
   
 		var cfwzobj = document.getElementById("cfwz");  
-		if(cfwzobj.value==""){  
+		if(cfwzobj.value=="不限"){  
 			document.getElementById("clabelcfwz").innerHTML="&nbsp;&nbsp;<font color=red>请输入存放位置</font>";  
 			return false;  
 		}else{

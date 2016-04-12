@@ -104,9 +104,6 @@ body {
  											String popdate = request.getParameter("opdate") == null ? "" : request.getParameter("opdate");
  											String startopdate = request.getParameter("startopdate") == null ? "" : request.getParameter("startopdate");
  											String endopdate = request.getParameter("endopdate") == null ? "" : request.getParameter("endopdate");
- 											String pwpno = request.getParameter("wpno") == null ? "" : request.getParameter("wpno");
- 											String startwpno = request.getParameter("startwpno") == null ? "" : request.getParameter("startwpno");
- 											String endwpno = request.getParameter("endwpno") == null ? "" : request.getParameter("endwpno");
  											String pspname = request.getParameter("spname") == null ? "" : request.getParameter("spname");
  											String startspname = request.getParameter("startspname") == null ? "" : request.getParameter("startspname");
  											String endspname = request.getParameter("endspname") == null ? "" : request.getParameter("endspname");
@@ -134,9 +131,6 @@ body {
 									<td height="28"
 										background="/productsys/admin/tab/images/bg.png"
 										bgcolor="#FFFFFF" align="center" class="STYLE1">入库数量</td>
-									<td height="28"
-										background="/productsys/admin/tab/images/bg.png"
-										bgcolor="#FFFFFF" align="center" class="STYLE1">当前数量</td>
 									<td height="28"
 										background="/productsys/admin/tab/images/bg.png"
 										bgcolor="#FFFFFF" align="center" class="STYLE1">生产日期</td>
@@ -202,8 +196,6 @@ body {
 									<td height="30" valign="middle" bgcolor="#FFFFFF"
 										class="STYLE1" align="center"><%=map.get("tnum")%></td>
 									<td height="30" valign="middle" bgcolor="#FFFFFF"
-										class="STYLE1" align="center"><%=map.get("nnum")%></td>
-									<td height="30" valign="middle" bgcolor="#FFFFFF"
 										class="STYLE1" align="center"><%=map.get("scdate")%></td>
 									<td height="30" valign="middle" bgcolor="#FFFFFF"
 										class="STYLE1" align="center"><%=map.get("cd")%></td>
@@ -252,7 +244,6 @@ body {
 <script src="/productsys/js/ajax.js"></script>
 	<%
 		mmm.put("opdate", popdate);
-		mmm.put("wpno", pwpno);
 		mmm.put("spname", pspname);
 	%>
 	<%=Info.tform(mmm)%> 

@@ -42,15 +42,15 @@ body {
 }
 </style> 
 </head>
-<% 
-new CommDAO().delete(request,"wpcrinfo"); 
-String id = request.getParameter("id"); 
-String erjitype = request.getParameter("erjitype"); 
-String myztree = request.getParameter("myztree"); 
-HashMap ext = new HashMap(); 
-ext.put("uname",Info.getUser(request).get("uname")); 
-new CommDAO().update(request,response,"wpcrinfo",ext,true,false); 
-HashMap mmm = new CommDAO().getmap(id,"wpcrinfo"); 
+<%
+	new CommDAO().delete(request, "wpcrinfo");
+	String id = request.getParameter("id");
+	String erjitype = request.getParameter("erjitype");
+	String myztree = request.getParameter("myztree");
+	HashMap ext = new HashMap();
+	ext.put("uname", Info.getUser(request).get("uname"));
+	new CommDAO().update(request, response, "wpcrinfo", ext, true, false);
+	HashMap mmm = new CommDAO().getmap(id, "wpcrinfo");
 %>
 <body>
 <form  action="rkwpcrinfoxg.jsp?f=f&id=<%=mmm.get("id")%>"  name="f1" method="post"  onsubmit="return checkform()" >

@@ -5,21 +5,21 @@
 <%@ page import="java.util.ArrayList"%> 
 <%@ page import="java.util.HashMap"%> 
 <%
-HashMap user = Info.getUser(request);
-String uname = user.get("uname").toString();
-String utype = user.get("utype").toString();
-String userid = user.get("id").toString();
-response.setHeader("Pragma","No-cache");    
-response.setHeader("Cache-Control","no-cache");    
-response.setDateHeader("Expires", -10);   
+	HashMap user = Info.getUser(request);
+	String uname = user.get("uname").toString();
+	String utype = user.get("utype").toString();
+	String userid = user.get("id").toString();
+	response.setHeader("Pragma", "No-cache");
+	response.setHeader("Cache-Control", "no-cache");
+	response.setDateHeader("Expires", -10);
 %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
-<title>出库添加</title>
+<title>报损添加</title>
 <style type="text/css">
 a { 
-	text-decoration: none;
+	text-decoration: none 
 }
 body {
 	margin-left: 0px;
@@ -28,7 +28,7 @@ body {
 	margin-bottom: 0px;
 }
 .STYLE1 {
-	font-size: 13px;
+	font-size: 13px
 }
 .STYLE3 {
 	font-size: 12px; 
@@ -38,23 +38,23 @@ body {
 	color: #03515d;
 	font-size: 12px;
 }
-
 </style>
 </head>
 <% 
- if(request.getParameter("f")!=null){
-new CommDAO().jiajian("wpcrinfo", "nnum", request.getParameter("pchi"), "-"+request.getParameter("tnum"), "1", "add"); 
-}
-HashMap ext = new HashMap(); 
-String tglparentid=request.getParameter("tglparentid")==null?"":request.getParameter("tglparentid"); 
-ext.put("tglparentid",tglparentid); 
-ext.put("optype","出库"); 
-ext.put("nnum",request.getParameter("tnum"));
-ext.put("uname",Info.getUser(request).get("uname")); 
-new CommDAO().insert(request,response,"wpcrinfo",ext,true,false); 
+	if(request.getParameter("f")!=null){
+		new CommDAO().jiajian("wpcrinfo", "nnum", request.getParameter("pchi"), "-"+request.getParameter("tnum"), "1", "add"); 
+	}
+
+	HashMap ext = new HashMap(); 
+	String tglparentid=request.getParameter("tglparentid")==null?"":request.getParameter("tglparentid"); 
+	ext.put("tglparentid",tglparentid); 
+	ext.put("optype","报损"); 
+	ext.put("nnum",request.getParameter("tnum"));
+	ext.put("uname",Info.getUser(request).get("uname")); 
+	new CommDAO().insert(request,response,"wpcrinfo",ext,true,false); 
 %>
 <body>
-<form  action="ckwpcrinfotj.jsp?f=f&tglparentid=<%=tglparentid%>"  name="f1" method="post"  onsubmit="return checkform()" >
+<form action="bswpcrinfotj.jsp?f=f&tglparentid=<%=tglparentid%>"  name="f1" method="post"  onsubmit="return checkform()" >
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td height="2"></td>
@@ -78,7 +78,7 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
                 									</div>
                 								</td>
                 								<td width="95%" class="STYLE1">
-                									<span class="STYLE3">你当前的位置</span>：添加出库单
+                									<span class="STYLE3">你当前的位置</span>： 报损信息添加
                 								</td>
               								</tr>
             							</table>
@@ -115,16 +115,15 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
           						<tr>
             						<td width="17%" height="30" bgcolor="#FFFFFF">
             							<div align="center">
-            								<span class="STYLE1">出库日期</span>
+            								<span class="STYLE1">报损日期</span>
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text' onblur='checkform()'  size='20' 
-            									class=''  name='opdate'  id='opdate' onclick='WdatePicker();'/>
+            							<input type='text' onblur='checkform()'  size='20' class=''  name='opdate'  id='opdate' onclick='WdatePicker();'  />
             							<label id='clabelopdate' />
             						</td>
           						</tr>
-          						<tr>
+								<tr>
             						<td width="17%" height="30" bgcolor="#FFFFFF">
             							<div align="center">
             								<span class="STYLE1">入库批次</span>
@@ -136,13 +135,13 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
 									</td>
           						</tr>
 								<tr>
-           	 						<td width="17%" height="30" bgcolor="#FFFFFF">
-           	 							<div align="center">
-           	 								<span class="STYLE1">物品编号</span>
-           	 							</div>
-           	 						</td>
+            						<td width="17%" height="30" bgcolor="#FFFFFF">
+            							<div align="center">
+            								<span class="STYLE1">物品编号</span>
+            							</div>
+            						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text' readonly style=' background-color:#EBEBE4'  onblur='checkform()' class='' id='wpno' name='wpno' size='20' />
+            							<input type='text' readonly style=" background-color:#EBEBE4"  onblur='checkform()' class='' id='wpno' name='wpno' size='30' />
             							<label id='clabelwpno' />
             						</td>
           						</tr>
@@ -153,7 +152,7 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text' readonly style=' background-color:#EBEBE4'  onblur='checkform()' class='' id='spname' name='spname' size='20' />
+            							<input type='text' readonly style="background-color:#EBEBE4"  onblur='checkform()' class='' id='spname' name='spname' size='30' />
             							<label id='clabelspname' />
             						</td>
           						</tr>
@@ -164,30 +163,39 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text' readonly style=' background-color:#EBEBE4'  onblur='checkform()' class='' id='nnum' name='nnum' size='20' />
+            							<input type='text' readonly style=' background-color:#EBEBE4'  onblur='checkform()' class='' id='nnum' name='nnum' size='30'/>
             							<label id='clabelnnum' />
             						</td>
           						</tr>
-          						<tr>
+								<tr>
             						<td width="17%" height="30" bgcolor="#FFFFFF">
             							<div align="center">
-            								<span class="STYLE1">出库数量</span>
+            								<span class="STYLE1">报损数量</span>
             							</div>
             						</td>
             						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
-            							<input type='text'  size='20' class=''  id='tnum'  name='tnum'  
-            									onkeyup='clearNoNum(this);' onblur='clearNoNum(this);checkform();' onmouseup='clearNoNum(this);'/>
-            							<label id='clabeltnum' />
+            							<input type='text' size='20' class=''  id='tnum'  name='tnum'  onkeyup='clearNoNum(this);' onblur='clearNoNum(this);getjia();checkform();' onmouseup='clearNoNum(this);' />
+            							<label id='clabeltnum'/>
+            						</td>
+          						</tr>
+								<tr>
+            						<td width="17%" height="30" bgcolor="#FFFFFF">
+            							<div align="center">
+            								<span class="STYLE1">报损原因</span>
+            							</div>
+            						</td>
+            						<td width="83%" bgcolor="#FFFFFF" class="STYLE1">
+            							<textarea  cols='35' rows='3'  style='margin-top: 1px;margin-bottom: 1px'  class=''  name='jcontent'  ></textarea>
             						</td>
           						</tr>
             					<tr>
             						<td height="32" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF">
-            							<input type="submit" name="Submit"  value="提交信息" />&nbsp;&nbsp;&nbsp;
-            							<input type='button' value='返回上页' onclick='window.location.replace("ckwpcrinfocx.jsp")' />            
+            							<input type="submit" name="Submit"  value="提交信息" />&nbsp;&nbsp;
+            							<input type='button' value='返回上页' onclick='window.location.replace("bswpcrinfocx.jsp")' />            
             						</td>
             					</tr>
-       			 			</table>
-       			 		</td>
+        					</table>
+        				</td>
         				<td width="8" background="/productsys/admin/tab/images/tab_15.gif"></td>
       				</tr>
     			</table>
@@ -214,85 +222,87 @@ new CommDAO().insert(request,response,"wpcrinfo",ext,true,false);
 <script language='javascript' src='/productsys/js/popup.js'></script>
 <script language='javascript' src='/productsys/js/ajax.js'></script>
 <script language='javascript'> 
-	function wpnopchichange(){ 
-		document.getElementById("pchi").onchange=function(){
-			wpnopchichange();  
- 		} 
-		var pchivalue = document.getElementById("pchi").value; 
-		var wpnoobj = document.getElementById("wpno"); 
-		wpnoobj.value=''; 
-		var ajax = new AJAX(); 
-		ajax.post("/productsys/factory/getsonops.jsp?glb=wpcrinfo&glzd=wpno~无名&jlzd=pchi&jlzdb=pchi&value="+pchivalue+"&ctype=text2&ttime=<%=Info.getDateStr()%>"); 
-		var msg = ajax.getValue(); 
-		wpnoobj.value=msg.replace(" ",""); 
-	} 
+function wpnopchichange(){ 
+	document.getElementById("pchi").onchange=function(){
+		wpnopchichange();  
+ 	} 
+	var pchivalue = document.getElementById("pchi").value; 
+	var wpnoobj = document.getElementById("wpno"); 
+	wpnoobj.value=''; 
+	var ajax = new AJAX(); 
+	ajax.post("/productsys/factory/getsonops.jsp?glb=wpcrinfo&glzd=wpno~无名&jlzd=pchi&jlzdb=pchi&value="+pchivalue+"&ctype=text2&ttime=<%=Info.getDateStr()%>"); 
+	var msg = ajax.getValue(); 
+	wpnoobj.value=msg.replace(" ",""); 
+} 
 
-	function spnamepchichange(){ 
-		document.getElementById("pchi").onchange=function(){
-			wpnopchichange();  
-			pnamepchichange();  
- 		} 
-		var pchivalue = document.getElementById("pchi").value; 
-		var spnameobj = document.getElementById("spname"); 
-		spnameobj.value=''; 
-		var ajax = new AJAX(); 
-		ajax.post("/productsys/factory/getsonops.jsp?glb=wpcrinfo&glzd=spname~无名&jlzd=pchi&jlzdb=pchi&value="+pchivalue+"&ctype=text2&ttime=<%=Info.getDateStr()%>"); 
-		var msg = ajax.getValue(); 
-		spnameobj.value=msg.replace(" ",""); 
+function spnamepchichange(){ 
+	document.getElementById("pchi").onchange=function(){
+		wpnopchichange();  
+		spnamepchichange();  
 	} 
+	var pchivalue = document.getElementById("pchi").value; 
+	var spnameobj = document.getElementById("spname"); 
+	spnameobj.value=''; 
+	var ajax = new AJAX(); 
+	ajax.post("/productsys/factory/getsonops.jsp?glb=wpcrinfo&glzd=spname~无名&jlzd=pchi&jlzdb=pchi&value="+pchivalue+"&ctype=text2&ttime=<%=Info.getDateStr()%>"); 
+	var msg = ajax.getValue(); 
+	spnameobj.value=msg.replace(" ",""); 
+} 
 
-	function nnumpchichange(){ 
-		document.getElementById("pchi").onchange=function(){
-			wpnopchichange();  
-			spnamepchichange();  
-			nnumpchichange();  
- 		} 
-		var pchivalue = document.getElementById("pchi").value; 
-		var nnumobj = document.getElementById("nnum"); 
-		nnumobj.value=''; 
-		var ajax = new AJAX(); 
-		ajax.post("/productsys/factory/getsonops.jsp?glb=wpcrinfo&glzd=nnum~无名&jlzd=pchi&jlzdb=pchi&value="+pchivalue+"&ctype=text2&ttime=<%=Info.getDateStr()%>"); 
-		var msg = ajax.getValue(); 
-		nnumobj.value=msg.replace(" ",""); 
-	} 
-          
-	wpnopchichange();  
-	spnamepchichange();  
-	nnumpchichange();  
+function nnumpchichange(){ 
+	document.getElementById("pchi").onchange=function(){
+		wpnopchichange();  
+		spnamepchichange();  
+		nnumpchichange();  
+ 	} 
+	var pchivalue = document.getElementById("pchi").value; 
+	var nnumobj = document.getElementById("nnum"); 
+	nnumobj.value=''; 
+	var ajax = new AJAX(); 
+	ajax.post("/productsys/factory/getsonops.jsp?glb=wpcrinfo&glzd=nnum~无名&jlzd=pchi&jlzdb=pchi&value="+pchivalue+"&ctype=text2&ttime=<%=Info.getDateStr()%>"); 
+	var msg = ajax.getValue(); 
+	nnumobj.value=msg.replace(" ",""); 
+} 
+         
+wpnopchichange();  
+spnamepchichange();  
+nnumpchichange();  
  
- 	function checkform(){  
-		var opdateobj = document.getElementById("opdate");  
-		if(opdateobj.value==""){  
-			document.getElementById("clabelopdate").innerHTML="&nbsp;&nbsp;<font color=red>请输入出库日期</font>";  
-			return false;  
-		}else{
-			document.getElementById("clabelopdate").innerHTML="  ";  
-		}  
+function checkform(){  
+	var opdateobj = document.getElementById("opdate");  
+	if(opdateobj.value==""){  
+		document.getElementById("clabelopdate").innerHTML="&nbsp;&nbsp;<font color=red>请输入报损日期</font>";  
+		return false;  
+	}else{
+		document.getElementById("clabelopdate").innerHTML="  ";  
+	}  
   
-		var pchiobj = document.getElementById("pchi");  
-			if(pchiobj.value=="不限"){  
-				document.getElementById("clabelpchi").innerHTML="&nbsp;&nbsp;<font color=red>请输入入库批次</font>";  
-			return false;  
-			}else{
-				document.getElementById("clabelpchi").innerHTML="  ";  
-			}  
+	var pchiobj = document.getElementById("pchi");  
+	if(pchiobj.value=="不限"){  
+		document.getElementById("clabelpchi").innerHTML="&nbsp;&nbsp;<font color=red>请输入入库批次</font>";  
+		return false;  
+	}else{
+		document.getElementById("clabelpchi").innerHTML="  ";  
+	}  
   
-			var tnumobj = document.getElementById("tnum");  
-			if(tnumobj.value==""){  
-				document.getElementById("clabeltnum").innerHTML="&nbsp;&nbsp;<font color=red>请输入出库数量</font>";  
-				return false;  
-			}else{
-				document.getElementById("clabeltnum").innerHTML="  ";  
-			}  
-			if(Number(document.getElementById("tnum").value)>Number(document.getElementById("nnum").value))
- 			{
- 				document.getElementById("clabeltnum").innerHTML="&nbsp;&nbsp;<font color=red>数量超出现有范围</font>";  
- 				return false;
- 			}else{
- 				document.getElementById("clabeltnum").innerHTML="   ";  
-			}
-		return true;   
-	}   
+	var tnumobj = document.getElementById("tnum");  
+	if(tnumobj.value==""){  
+		document.getElementById("clabeltnum").innerHTML="&nbsp;&nbsp;<font color=red>请输入报损数量</font>";  
+		return false;  
+	}else{
+		document.getElementById("clabeltnum").innerHTML="  ";  
+	}  
+
+
+ 	if(Number(document.getElementById("tnum").value)>Number(document.getElementById("nnum").value)){
+ 		document.getElementById("clabeltnum").innerHTML="&nbsp;&nbsp;<font color=red>数量超出现有范围</font>";  
+ 		return false;
+ 	}else{
+ 		document.getElementById("clabeltnum").innerHTML="   ";  
+ 	}
+  
+	return true;   
+}   
 </script>  
 </body>
 </html>

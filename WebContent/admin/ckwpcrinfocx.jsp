@@ -102,9 +102,6 @@ body {
             								String popdate = request.getParameter("opdate") == null ? "" : request.getParameter("opdate");
             								String startopdate = request.getParameter("startopdate") == null ? "" : request.getParameter("startopdate");
             								String endopdate = request.getParameter("endopdate") == null ? "" : request.getParameter("endopdate");
-            								String pwpno = request.getParameter("wpno") == null ? "" : request.getParameter("wpno");
-            								String startwpno = request.getParameter("startwpno") == null ? "" : request.getParameter("startwpno");
-            								String endwpno = request.getParameter("endwpno") == null ? "" : request.getParameter("endwpno");
             								String pspname = request.getParameter("spname") == null ? "" : request.getParameter("spname");
             								String startspname = request.getParameter("startspname") == null ? "" : request.getParameter("startspname");
             								String endspname = request.getParameter("endspname") == null ? "" : request.getParameter("endspname");
@@ -112,7 +109,7 @@ body {
             							%> 
             							&nbsp;
             							出库日期 ：<input type='text' class='' size='10' name='startopdate' onclick='WdatePicker();'/>
-										至 <input type=text class='' size='10' name='endopdate' onclick='WdatePicker();' />&nbsp;&nbsp;
+										至 <input type='text' class='' size='10' name='endopdate' onclick='WdatePicker();' />&nbsp;&nbsp;
 										物品名称：<input type='text' class='' id='wpname' size='50' name='spname'/>&nbsp;&nbsp;
 										<input type='submit' class='' value='查询信息' />&nbsp;&nbsp;
 										<input type='button' class='' value='填写出库单' onclick="window.location.replace('ckwpcrinfotj.jsp')" /> 
@@ -175,8 +172,7 @@ body {
           							sql += "  or  optype like'%出库%' ";
           							sql += "  ) ";
           							sql += " order by id desc ";
-          							String url = "ckwpcrinfocx.jsp?1=1&opdate=" + popdate  + "&wpno=" + pwpno + "&spname="
-          									+ pspname + "";
+          							String url = "ckwpcrinfocx.jsp?1=1&opdate=" + popdate  + "&spname=" + pspname + "";
           							ArrayList<HashMap> list = PageManager.getPages(url, 5, sql, request);
           							for (HashMap map : list) {
           						%>
@@ -231,7 +227,6 @@ body {
 <script language='javascript' src='/productsys/js/popup.js'></script>
 	<% 
 		mmm.put("opdate",popdate); 
-		mmm.put("wpno",pwpno); 
 		mmm.put("spname",pspname); 
 	%>
 	<%=Info.tform(mmm)%> 
