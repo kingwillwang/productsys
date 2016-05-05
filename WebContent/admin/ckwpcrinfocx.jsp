@@ -112,7 +112,7 @@ body {
 										至 <input type='text' class='' size='10' name='endopdate' onclick='WdatePicker();' />&nbsp;&nbsp;
 										物品名称：<input type='text' class='' id='wpname' size='50' name='spname'/>&nbsp;&nbsp;
 										<input type='submit' class='' value='查询信息' />&nbsp;&nbsp;
-										<input type='button' class='' value='填写出库单' onclick="window.location.replace('ckwpcrinfotj.jsp')" /> 
+										<!-- <input type='button' class='' value='填写出库单' onclick="window.location.replace('ckwpcrinfotj.jsp')" /> --> 
 									</td>
             					</tr>
           						<tr>

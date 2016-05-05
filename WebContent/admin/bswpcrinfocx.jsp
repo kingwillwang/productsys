@@ -107,7 +107,7 @@ body {
 									物品名称：<input type='text' class='' id='wpname' size='30' name='spname'/>&nbsp;&nbsp;
 									<input type='submit' class='' value='查询信息' />
  									&nbsp;&nbsp;
-									<input type='button' class='' value='填写报损单' onclick="window.location.replace('bswpcrinfotj.jsp')" /> 
+									<!-- <input type='button' class='' value='填写报损单' onclick="window.location.replace('bswpcrinfotj.jsp')" /> --> 
 									</td>
             					</tr>
           						<tr>

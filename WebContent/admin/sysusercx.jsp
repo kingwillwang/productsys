@@ -126,7 +126,7 @@ body {
 										&nbsp;
 										<input type='submit' class='' value='查询信息' />
  										&nbsp;
-										<input type='button' class='' value='添加信息' onclick="window.location.replace('sysusertj.jsp')" /> 
+										<!-- <input type='button' class='' value='添加信息' onclick="window.location.replace('sysusertj.jsp')" /> --> 
 									</td>
             					</tr>
           						<tr>

@@ -178,7 +178,7 @@ body {
 										sql += "  or  optype like'%入库%' ";
 										sql += "  ) ";
 										sql += " order by id desc ";
-										String url = "rkwpcrinfocx.jsp?1=1&opdate=" + popdate + "&spname=" + pspname + "";
+										String url = "rkwpcrinfocx2.jsp?1=1&opdate=" + popdate + "&spname=" + pspname + "";
 										ArrayList<HashMap> list = PageManager.getPages(url, 5, sql, request);
 										for (HashMap map : list) {
 									%>

@@ -191,7 +191,7 @@ body {
             					<tr>
             						<td height="32" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF">
             							<input type="submit" name="Submit"  value="提交信息" />&nbsp;&nbsp;
-            							<input type='button' value='返回上页' onclick='window.location.replace("bswpcrinfocx.jsp")' />            
+            							<!-- <input type='button' value='返回上页' onclick='window.location.replace("bswpcrinfocx.jsp")' /> -->            
             						</td>
             					</tr>
         					</table>

@@ -59,29 +59,32 @@ String userid = user.get("id").toString();
        <%if(utype.equals("系统管理员")){ %>
           <%=Info.getCol("A","2","入库管理",null,null) %>
           <%=Info.getCol("C","2",null,null,"") %>
+          <%=Info.getCol("B","2","入库单添加","rkwpcrinfotj.jsp",null) %>
           <%=Info.getCol("B","2","入库清单","rkwpcrinfocx.jsp",null) %>
-          <%=Info.getCol("B","2","入库操作","rukucaozuo.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
           
           <%=Info.getCol("A","4","出库管理",null,null) %>
           <%=Info.getCol("C","4",null,null,"none") %>
+          <%=Info.getCol("B","4","出库单添加","ckwpcrinfotj.jsp",null) %>
           <%=Info.getCol("B","4","出库清单","ckwpcrinfocx.jsp",null) %>
-          <%=Info.getCol("B","4","出库操作","chukucaozuo.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
           
           
           <%=Info.getCol("A","1","库存管理",null,null) %>
           <%=Info.getCol("C","1",null,null,"none") %>
-          <%=Info.getCol("B","1","仓库管理","basescx.jsp",null) %>
+          <%=Info.getCol("B","1","添加仓库","basestj.jsp",null) %>
+          <%=Info.getCol("B","1","仓库维护","basescx.jsp",null) %>
           <%=Info.getCol("B","1","库存盘点","kcpd.jsp",null) %>
-          <%=Info.getCol("B","1","库存报损","bswpcrinfocx.jsp",null) %>
+          <%=Info.getCol("B","1","报损添加","bswpcrinfotj.jsp",null) %>
+          <%=Info.getCol("B","1","库存报损管理","bswpcrinfocx.jsp",null) %>
           <%=Info.getCol("B","1","业务数据统计","ywsjtj.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
           
           <%=Info.getCol("A","3","信息维护",null,null) %>
           <%=Info.getCol("C","3",null,null,"none") %>
           <%=Info.getCol("B","3","修改登录密码","puppass.jsp",null) %>
-          <%=Info.getCol("B","3","系统用户管理","sysusercx.jsp",null) %>
+          <%=Info.getCol("B","3","新用户添加","sysusertj.jsp",null) %>
+          <%=Info.getCol("B","3","用户信息管理","sysusercx.jsp",null) %>
           <%=Info.getCol("B","3","修改个人信息","psysuserxg.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
     <%} %>
@@ -89,18 +92,22 @@ String userid = user.get("id").toString();
        <%if(utype.equals("库存管理员")){ %>
           <%=Info.getCol("A","2","入库信息管理",null,null) %>
           <%=Info.getCol("C","2",null,null,"") %>
+         <%=Info.getCol("B","2","入库单添加","rkwpcrinfotj.jsp",null) %>
           <%=Info.getCol("B","2","入库清单","rkwpcrinfocx.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
            
           <%=Info.getCol("A","4","出库管理",null,null) %>
           <%=Info.getCol("C","4",null,null,"none") %>
+           <%=Info.getCol("B","4","出库单添加","ckwpcrinfotj.jsp",null) %>
           <%=Info.getCol("B","4","出库清单","ckwpcrinfocx.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
            
           <%=Info.getCol("A","1","库存管理",null,null) %>
           <%=Info.getCol("C","1",null,null,"none") %>
+          <%=Info.getCol("B","1","仓库信息查询","basescx2.jsp",null) %>
           <%=Info.getCol("B","1","库存盘点","kcpd.jsp",null) %>
-          <%=Info.getCol("B","1","库存报损","bswpcrinfocx.jsp",null) %>
+          <%=Info.getCol("B","1","报损添加","bswpcrinfotj.jsp",null) %>
+          <%=Info.getCol("B","1","库存报损管理","bswpcrinfocx.jsp",null) %>
           <%=Info.getCol("D",null,null,null,null) %>
           
           <%=Info.getCol("A","3","个人信息维护",null,null) %>

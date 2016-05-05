@@ -115,7 +115,7 @@ body {
  										&nbsp;&nbsp;
  										物品名称：<input type='text' class='' id='wpname' size='50' name='spname'/>&nbsp;&nbsp;
 										<input type='submit' class='' value='查询' />&nbsp;&nbsp; 
-										<input type='button' class='' value='填写入库单' onclick="window.location.replace('rkwpcrinfotj.jsp')" />
+										<!-- <input type='button' class='' value='填写入库单' onclick="window.location.replace('rkwpcrinfotj.jsp')" /> -->
 									</td>
 								</tr>
 								<tr>

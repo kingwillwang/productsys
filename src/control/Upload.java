@@ -38,13 +38,16 @@ public class Upload extends HttpServlet {
 	 *
 	 * This method is called when a form has its tag value method equals to get.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		this.doPost(request, response);
 	}
@@ -52,81 +55,83 @@ public class Upload extends HttpServlet {
 	/**
 	 * The doPost method of the servlet. <br>
 	 *
-	 * This method is called when a form has its tag value method equals to post.
+	 * This method is called when a form has its tag value method equals to
+	 * post.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.reset();
-		StringBuffer   sb   =   new   StringBuffer(50);   
-		 response.setContentType("application/x-msdownload;charset=GB2312");   
-        try {
-			response.setHeader("Content-Disposition",   new   String(sb.toString()   
-			         .getBytes(),   "ISO8859-1"));
+		StringBuffer sb = new StringBuffer(50);
+		response.setContentType("application/x-msdownload;charset=GB2312");
+		try {
+			response.setHeader("Content-Disposition", new String(sb.toString().getBytes(), "ISO8859-1"));
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		 String filename = request.getParameter("filename");
-		  if (request.getHeader("User-Agent").toLowerCase().indexOf("firefox") > 0){
-		     try {
+		String filename = request.getParameter("filename");
+		if (request.getHeader("User-Agent").toLowerCase().indexOf("firefox") > 0) {
+			try {
 				filename = new String(filename.getBytes("UTF-8"), "ISO8859-1");
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		 }
-		 else 
-		      if (request.getHeader("User-Agent").toUpperCase().indexOf("MSIE") > 0){
-		           try {
-					filename = URLEncoder.encode(filename, "UTF-8");
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		      }
-		 response.setContentType("text/plain");
-		 response.setHeader("Location",filename);
-		 response.reset();
-		 response.setHeader("Cache-Control", "max-age=0" );
-		 response.setHeader("Content-Disposition", "attachment; filename=" + filename);
-		   
-
-		    try {
-				       BufferedInputStream bis = null;
-					   BufferedOutputStream bos = null;
-					   OutputStream fos = null;
-					  // File f = new File(request.getRealPath("/upfile/")+"/"+filename);
-					   //System.out.println(f);
-					   System.out.println(request.getRealPath("/upfile/")+"/"+filename);
-					   bis = new BufferedInputStream((InputStream)new FileInputStream(request.getRealPath("/upfile/")+"/"+filename));
-					    fos = response.getOutputStream();
-					    bos = new BufferedOutputStream(fos);
-
-					    int bytesRead = 0;
-					    byte[] buffer = new byte[5 * 1024];
-					    while ((bytesRead = bis.read(buffer)) != -1) {
-					     bos.write(buffer, 0, bytesRead);
-					    }
-					    bos.close();
-					    bis.close();
-					    fos.close();
-				
-		               new Info().delPic(request.getRealPath("/upfile/")+"/", filename);
-		     } catch (Exception e) {
+		} else if (request.getHeader("User-Agent").toUpperCase().indexOf("MSIE") > 0) {
+			try {
+				filename = URLEncoder.encode(filename, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally{
 			}
+		}
+		response.setContentType("text/plain");
+		response.setHeader("Location", filename);
+		response.reset();
+		response.setHeader("Cache-Control", "max-age=0");
+		response.setHeader("Content-Disposition", "attachment; filename=" + filename);
+
+		try {
+			BufferedInputStream bis = null;
+			BufferedOutputStream bos = null;
+			OutputStream fos = null;
+			// File f = new File(request.getRealPath("/upfile/")+"/"+filename);
+			// System.out.println(f);
+			System.out.println(request.getRealPath("/upfile/") + "/" + filename);
+			bis = new BufferedInputStream(
+					(InputStream) new FileInputStream(request.getRealPath("/upfile/") + "/" + filename));
+			fos = response.getOutputStream();
+			bos = new BufferedOutputStream(fos);
+
+			int bytesRead = 0;
+			byte[] buffer = new byte[5 * 1024];
+			while ((bytesRead = bis.read(buffer)) != -1) {
+				bos.write(buffer, 0, bytesRead);
+			}
+			bos.close();
+			bis.close();
+			fos.close();
+
+			new Info().delPic(request.getRealPath("/upfile/") + "/", filename);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
 	}
 
 	/**
 	 * Initialization of the servlet. <br>
 	 *
-	 * @throws ServletException if an error occurs
+	 * @throws ServletException
+	 *             if an error occurs
 	 */
 	public void init() throws ServletException {
 		// Put your code here

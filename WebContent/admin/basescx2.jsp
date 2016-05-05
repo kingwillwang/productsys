@@ -112,7 +112,7 @@ body {
           						<tr>
             						<td height="28" background="/productsys/admin/tab/images/bg.png" bgcolor="#FFFFFF" align="center" class="STYLE1">仓库名称  </td>
 									<td height="28" background="/productsys/admin/tab/images/bg.png" bgcolor="#FFFFFF" align="center" class="STYLE1">仓库方位  </td>
-									<td height="28" background="/productsys/admin/tab/images/bg.png" bgcolor="#FFFFFF" align="center" class="STYLE1">操作  </td>
+									<!-- <td height="28" background="/productsys/admin/tab/images/bg.png" bgcolor="#FFFFFF" align="center" class="STYLE1">操作  </td> -->
             					</tr>
           						<%
           							new CommDAO().delete(request, "bases");
@@ -146,10 +146,10 @@ body {
             						<td height="30" valign="middle" bgcolor="#FFFFFF" class="STYLE1" align="center">
             							<%=map.get("baddrs")%>
             						</td>
-            						<td height="30" valign="middle" bgcolor="#FFFFFF" class="STYLE1" align="center">
+            						<%-- <td height="30" valign="middle" bgcolor="#FFFFFF" class="STYLE1" align="center">
 										<a href="basesxg.jsp?id=<%=map.get("id")%>">修改</a>|
 										<a onclick="return confirm('确定要删除这条记录吗?')" href="basescx.jsp?scid=<%=map.get("id")%>">删除</a>
-									</td>
+									</td> --%>
 								</tr>
 								<%}%>
         					</table>
@@ -185,7 +185,7 @@ body {
 mmm.put("bname",pbname); 
 %>
 <%=Info.tform(mmm)%> 
-<script language='javascript'> 
+<!-- <script language='javascript'> 
 function update(no){ 
 	pop('basesxg.jsp?id='+no,'信息修改',550,'100%') 
 }
@@ -193,6 +193,6 @@ function update(no){
 function add(){ 
 	pop('basestj.jsp','信息添加',550,'100%') 
 }
-</script> 
+</script>  -->
 </body>
 </html>
