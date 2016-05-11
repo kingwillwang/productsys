@@ -259,7 +259,7 @@ public class MainCtrl extends HttpServlet {
 		}
 	  
 
-		if(ac.equals("uploadimg"))
+		/*if(ac.equals("uploadimg"))
 		{
 			try {
 				String filename="";
@@ -453,7 +453,7 @@ public class MainCtrl extends HttpServlet {
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			    }
-		}
+		}*/
 		
 		dao.close();
 		out.flush();
